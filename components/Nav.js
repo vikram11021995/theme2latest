@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Link from "next/link";
+import { IoChevronForwardOutline } from "react-icons/io5";
 import { setHTMLElementFixedPosition } from "../utils/functions";
 // import "../styles/NavMenu.css";
-{/* <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link> */}
+{/* <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link> */ }
 
 const Wrapper = styled.div`
   background-color: var(--primary);
@@ -74,11 +75,24 @@ const Nav = ({ menu: { childs } }) => {
     // let catName = cat;
     setNavMenuOpen(!navMenuOpen);
   };
+  const [showZoomModal, setShowZoomModal] = useState(false);
 
   return (
-    
-      <ul className="all-productslist0">
-        {/* <i className="fa fa-angle-right" style="font-size:48px;color:red"></i> */}
+
+
+    <>
+      <div id='AnaMenu'>
+        <ul id='nav'>
+          <li> <a href='#' onMouseMove={() => {
+            setShowZoomModal(!showZoomModal);
+          }} style={{ color: "#222" }}>All Products {showZoomModal ? (
+            <div ><IoChevronForwardOutline /></div>
+          ) : (
+            <div ><IoChevronForwardOutline /></div>
+          )}</a>
+
+
+            <ul>
               {childs.map(child => {
                 let url = child.URL;
                 if (url.includes("stores")) {
@@ -87,53 +101,60 @@ const Nav = ({ menu: { childs } }) => {
                 return (
                   <li
                     key={child.cid}
-                    className="productsCategores"
                   >
                     <Link
-                      className="menuCat category-menu"
-                      style={{ color: "#fff" }}
                       href={`/${url}`}
                       onClick={() => handleCategoryChange()}
                     >
-                      <a>{child.name}</a>
+                      <a>{child.description.replace("All Products", "Browse Categories")} {child.childs.length > 0 ? (<div ><IoChevronForwardOutline /></div>) : null}</a>
                     </Link>
+
                     {child.childs.length > 0 ? (
-                      <ul className="sub-menu megamenu-wrapper flex">
+                      <ul>
                         {child.childs.map(subcat => {
-                          <li className="hvr-col">
-                            <Link
-                              href="/"
-                              onClick={() => handleCategoryChange()}
+                          let suburl = subcat.URL;
+
+
+                          return (
+                            <li
                             >
-                              <a>{subcat.description}</a>
-                            </Link>
-                            <ul className="megamenu-child">
-                              {subcat.childs.map((subsubcat, index) => (
-                                <li className="subchilds" key={index}>
-                                  <Link
-                                    href="/"
-                                    onClick={() => handleCategoryChange()}
-                                  >
-                                    <a>{subsubcat.description}</a>
-                                  </Link>
-                                </li>
-                              ))}
-                            </ul>
-                          </li>;
+                              <Link
+                                href={`/${suburl}`}
+                                onClick={() => handleCategoryChange()}
+                              >
+                                <a>{subcat.description.replaceAll('&amp;', '&')} {subcat.childs.length > 0 ? (<div ><IoChevronForwardOutline /></div>) : null}</a>
+                              </Link>
+                              <ul>
+
+                                {subcat.childs.map((subsubcat, index) => (
+                                  <li key={index}>
+                                    <Link
+                                      href={`/${subsubcat.URL}`}
+                                      onClick={() => handleCategoryChange()}
+                                    >
+                                      <a>{subsubcat.description.replaceAll('&amp;', '&')}</a>
+                                    </Link>
+                                  </li>
+                                ))}
+                              </ul>
+                            </li>
+                          )
+
                         })}
                       </ul>
                     ) : null}
                   </li>
                 );
               })}
-              <li className="productsCategores">
-                <Link href={"/news"}>
-                  <a>News</a>
-                </Link>
-              </li>
             </ul>
-          
-    
+
+          </li>
+        </ul>
+      </div>
+
+
+    </>
+
   );
 };
 

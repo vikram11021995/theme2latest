@@ -162,22 +162,27 @@ const HomeBanner = () => {
             </div>
           </div>
           <div className="img-ch">
+            <div className="img-ch-1">
+            <div className="img-ch-11">
             <img
               src="https://ik.imagekit.io/ofb/themes/Group_179_JhOLJo0d3.png?ik-sdk-version=javascript-1.4.3&updatedAt=1666929113581"
-              className="img-productr imgProductsl"
+              className="img-productr imgProductsls"
             />
-
+            </div>
             <div className={classes.shadow_swhow_mini}>
               <div className={classes.deroul_titre003}>
                 Music like never before
               </div>
               <button className={classes.deroul_soustitrebtn3}>Explore</button>
             </div>
-
+            </div>
+            <div className="img-ch-2">
+            <div className="img-ch-12">
             <img
               src="https://ik.imagekit.io/ofb/themes/Group_176_5i9S60Q_H.png?ik-sdk-version=javascript-1.4.3&updatedAt=1666237235578"
-              className="img-productrr imgProductsl"
+              className="img-productrr imgProductsls"
             />
+            </div>
             <div className={classes.shadow_swhow_mini}>
               <div className={classes.deroul_titre004}>
                 Experience the age of Virtual Reality
@@ -185,6 +190,7 @@ const HomeBanner = () => {
               <button className={classes.deroul_soustitrebtn0003}>
                 Explore
               </button>
+            </div>
             </div>
           </div>
         </div>

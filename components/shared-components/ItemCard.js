@@ -380,11 +380,11 @@ console.log("cvvvvv", productPrice);
             <a tabIndex={"-1"} className="image-link">
 
               {/* must uncomment */}
-              {/* <Image
+              <Image
                 src={
                   relatedItem
-                    ? `${item.image}?tr=dpr-1,pr-true,w-200,q-70`
-                    : `${process.env.NEXT_PUBLIC_IMAGEKIT}/${item.itemLargeImage}?tr=dpr-1,pr-true,w-200,q-70`
+                    ? `${item.image}`
+                    : `${process.env.NEXT_PUBLIC_IMAGEKIT}/${item.itemLargeImage}`
                 }
                 className="cardProductsImg"
                 width={200}
@@ -395,10 +395,10 @@ console.log("cvvvvv", productPrice);
                 placeholder="blur"
                 blurDataURL={
                   relatedItem
-                    ? `${item.image}?tr=dpr-1,pr-true,w-200,q-70`
-                    : `${process.env.NEXT_PUBLIC_IMAGEKIT}/${item.itemLargeImage}?tr=dpr-1,pr-true,w-50,q-4`
+                    ? `${item.image}`
+                    : `${process.env.NEXT_PUBLIC_IMAGEKIT}/${item.itemLargeImage}`
                 }
-              /> */}
+              />
 
               {/* must uncomment */}
             </a>

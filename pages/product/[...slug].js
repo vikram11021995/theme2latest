@@ -481,13 +481,13 @@ const Product = ({
         renderedBy="HomeBanner"
         firstSupplierVid={firstSupplierVid}
       />
+      <div style={{marginTop: "55px"}}>
+        <Breadcrumbs breadcrumbs={product.breadcrumbs} />
+      </div>
       <Container>
         {/* <ProductFamily products={productInitialData.productFamily} /> */}
 
-        <TopNavigation>
-          <Breadcrumbs breadcrumbs={product.breadcrumbs} />
-          {/* <div className="item-navigation">{renderItemNavigationLinks()}</div> */}
-        </TopNavigation>
+        
         {isMobileState ? (
           // <div className="flex flex-col md:flex-row">
           //   <div className="flex-auto lg:w-80 md:w-80 sm:w-96" style={{marginLeft: "20px"}}>
@@ -679,11 +679,11 @@ const Product = ({
           </>
         ) : (
     <>
-    <Breadcrumbs breadcrumbs={product.breadcrumbs} className="bredcrumb999"/>
+    
           <div className="flex flex-col md:flex-row distanccTopImage">
-            {/* <Breadcrumbs breadcrumbs={product.breadcrumbs} /> */}
+           
             <div className="flex-auto lg:w-80 md:w-80 sm:w-96">
-            {/* <Breadcrumbs breadcrumbs={product.breadcrumbs} /> */}
+           
               <DesktopCarousel
                 // className="hidden md:block"
                 code={productDetailsData.code}
@@ -1208,7 +1208,8 @@ const Wrapper = styled.main`
   .Brand_nameWishlist{
     display: flex;
     min-width: max-content;
-    margin-bottom: -21px;
+    align-items: center;
+    justify-content: space-between;
   }
   .wishlistAndShare{
     display: flex !important;

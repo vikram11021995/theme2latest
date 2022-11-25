@@ -8,11 +8,7 @@ import { useTranslation } from "next-i18next";
 
 const Wrapper = styled.div`
   .wishlist-btn {
-    padding-left: 0px;
-    // background: #494949;
-    color: #fff;
-    padding: 10px 10px;
-    // min-width: 180px;
+     
   }
 `;
 
@@ -95,7 +91,7 @@ const WishListBar = ({ data, productUnavailable, price: pPrice, product }) => {
         onClick={e => {
           handleToggleWishlistIcon(e);
         }}
-        className="focusAble focusAbleIcon col-xs-121 wishlist-btn lg:ml-5 md:ml-0 sm:ml-0"
+        className="focusAble"
         style={{
           paddingLeft: "0px",
           cursor: "pointer"
@@ -104,42 +100,25 @@ const WishListBar = ({ data, productUnavailable, price: pPrice, product }) => {
         onMouseLeave={() => setFavouriteState("favorite_border")}
       >
         {wishListState.filter(w => w.id == product.itemid).length > 0 ? (
-          // <p
-          //   style={{
-          //     display: "flex",
-          //     flexDirection: "row",
-          //     alignItems: "center",
-          //     fontSize: "16px",
-          //     justifyContent: "center",
-          //     width: "250px"
-          //   }}
-          // >
-          //   <span id="buyBoxWishlist">
-          //     <span
-          //       className="wishlistHeart"
-          //       title="Remove from wishlist"
-          //     ></span>
-          //   </span>
-          //   <MdFavorite style={{ marginRight: "5px", color: "red" }} /> REMOVE
-          //   FROM WISHLIST
-          // </p>
-          <>
-          <img
-                        src="https://ik.imagekit.io/ofb/themes/heart_6s-G7NVTI.png?ik-sdk-version=javascript-1.4.3&updatedAt=1666845716083"
-                        // width="5%"
-                        // style={{width: "25px", position: "absolute", top: "-2px", color: "orange", cursor: "pointer"}}
-                        style={{ cursor: "pointer", backgroundColor: "#ddd"}}
-
-                      />
-                      </>
+          <p
+          >
+            <span id="buyBoxWishlist">
+              <span
+                className="wishlistHeart"
+                title="Remove from wishlist"
+              ></span>
+            </span>
+            <img src="https://ik.imagekit.io/ofb/themes/heart__1___1__w2s0eEm63.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1666676255701" />
+            
+          </p>
         ) : (
-          <p    >
-            <img
-                        src="https://ik.imagekit.io/ofb/themes/heart_6s-G7NVTI.png?ik-sdk-version=javascript-1.4.3&updatedAt=1666845716083"
-                        // width="5%"
-                        style={{ cursor: "pointer"}}
-                      />
-            {/* {t("moreShare.addToWishList")} */}
+          <p
+          >
+            <span id="buyBoxWishlist">
+              <span className="wishlistHeart" title="Add to wishlist"></span>
+            </span>
+            <img src="https://ik.imagekit.io/ofb/themes/Group_79_AxJIStywbY.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1665052318950" />
+            
           </p>
         )}
       </div>

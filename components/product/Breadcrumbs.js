@@ -79,14 +79,22 @@ const Breadcrumbs = ({ breadcrumbs, family }) => {
 
 const Wrapper = styled.div`
   .sub-nav-bread {
-    // padding: 15px 5%;
-    padding: 8px 5.5%;
+    padding: 0px 5.5% 12px 5%;
     width: 100%;
     margin: 0 auto;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
     flex-direction: row;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
     justify-content: space-between;
     background: #f9f9f9;
+    align-items: center;
   }
 
   grid-column: 1 / -1;

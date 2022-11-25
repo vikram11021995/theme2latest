@@ -143,7 +143,7 @@ margin-bottom: 20px;
   .grid_img {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important;
-    grid-gap: 13px !important;
+    grid-gap: 5px !important;
     width: 100% !important; 
     padding: 0 5% !important;
     display: flex !important;
@@ -158,7 +158,7 @@ margin-bottom: 20px;
 
   .deroul_titre02{
     position: absolute;
-    margin-top: -251px;
+    margin-top: -191px;
     margin-left: 27.5%;
     font-size: 27px;
     font-weight: 500;
@@ -218,8 +218,8 @@ margin-bottom: 20px;
   .deroul_titre03{
     position: absolute;
     right: 7.8%;
-    margin-top: -9%;
-    width: 6.8%;
+    margin-top: -8%;
+    width: 11.8%;
     color: #37455E;
     font-size: 15px;
     font-weight: 500;
@@ -246,7 +246,7 @@ margin-bottom: 20px;
     position: absolute;
     left: 43.5%;
     margin-top: 52px;
-    width: 6%;
+    width: 50%;
     font-size: 16px;
     font-weight: 500;
     color: #37455E;
@@ -264,14 +264,14 @@ margin-bottom: 20px;
     margin: 4px 1px;
     cursor: pointer;
     position: absolute;
-    margin-top: 13%;
+    margin-top: 7%;
     left: 43.4%;
   }
 
   .deroul_titre004{
     position: absolute;
     left: 70%;
-    margin-top: 131px;
+    margin-top: 50px;
     width: 11%;
     color: #37455E;
     font-size: 16px;
@@ -291,7 +291,7 @@ margin-bottom: 20px;
     cursor: pointer;
     position: absolute;
     right: 20.7%;
-    margin-top: 13%;
+    margin-top: 7%;
   }
 
   .deroul_titre030{

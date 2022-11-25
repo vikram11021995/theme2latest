@@ -36,9 +36,11 @@ import Internationalization from "./Internationalization/Internationalization.js
 import { useTranslation } from "next-i18next";
 
 import { toggleCompare } from "./Compare";
-import { toggleCompareAction, deleteComparedItemsDetails,
+import {
+  toggleCompareAction, deleteComparedItemsDetails,
   deleteCompareItem,
-  fetchComparedItemDetails, } from "../redux/actions/compareActions";
+  fetchComparedItemDetails,
+} from "../redux/actions/compareActions";
 
 
 
@@ -290,6 +292,9 @@ const Wrapper = styled.div`
   .nav_submenus {
     marginleft: 67px !important;
   }
+
+
+  
 
   @media screen and (max-width: 431px) {
     .navLink99{
@@ -567,7 +572,7 @@ const TopBar = ({ menu, locale }) => {
   );
 
   let isItemCompared =
-  compareListState && compareListState.some(i => i.id == item.id);
+    compareListState && compareListState.some(i => i.id == item.id);
 
   const [compareIconState, setCompareIconState] = useState("");
   const [isActive, setIsActive] = useState(false);
@@ -740,7 +745,7 @@ const TopBar = ({ menu, locale }) => {
           </div>
 
           <div className="topbar--mobile">
-            <DynamicHamburgerMenu menu={menu} className="ham-menu"/>
+            <DynamicHamburgerMenu menu={menu} className="ham-menu" />
 
             <div className="logo">
               <Link href="/">
@@ -794,7 +799,7 @@ const TopBar = ({ menu, locale }) => {
                       {wishListState.length}
                     </div>
                     <img src="https://ik.imagekit.io/ofb/themes/heart_6s-G7NVTI.png?ik-sdk-version=javascript-1.4.3&updatedAt=1666845716083" />
-                    
+
                     {/* <img src="https://ik.imagekit.io/ofb/themes/Component_76___2_tpoNNbp25.png?ik-sdk-version=javascript-1.4.3&updatedAt=1666771406025" /> */}
                   </>
                 ) : (
@@ -809,7 +814,7 @@ const TopBar = ({ menu, locale }) => {
                 className="text-secondary mx-1 relative cartSaveLater"
                 onClick={() => setCartModalOpen(true)}
               >
-                <img src="https://ik.imagekit.io/ofb/cart_Ux9tRMq1F.png?ik-sdk-version=javascript-1.4.3&updatedAt=1666255880085" className="group57-img"/>
+                <img src="https://ik.imagekit.io/ofb/cart_Ux9tRMq1F.png?ik-sdk-version=javascript-1.4.3&updatedAt=1666255880085" className="group57-img" />
                 {basketState.itemsCount > 0 ? (
                   <span className="basket-count-badge">
                     {basketState?.itemsCount}
@@ -821,8 +826,8 @@ const TopBar = ({ menu, locale }) => {
                 className="cursor-pointer text-secondary mx-1 group57Top"
                 onClick={() => dispatch(setAuthModal(!authModalState))}
               >
-                <img src="https://ik.imagekit.io/ofb/themes/Group_57_KRIvlEH3P.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1665052318585" 
-                className="group57-img"/>
+                <img src="https://ik.imagekit.io/ofb/themes/Group_57_KRIvlEH3P.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1665052318585"
+                  className="group57-img" />
               </a>
 
 
@@ -863,14 +868,14 @@ const TopBar = ({ menu, locale }) => {
 
       <div className="allCateg">
         <div className="all-cate">
-          
+
           <div
             className="all-products0"
             onMouseMove={() => {
               setShowZoomModal(!showZoomModal);
             }}
           >
-            <h2 className="all_itemprod1">
+            {/* <h2 className="all_itemprod1">
               All Products
               <span className="rightDownexpandicon">
                 <i className={showZoomModal ? "arrow down" : "arrow right"}>
@@ -881,9 +886,13 @@ const TopBar = ({ menu, locale }) => {
                   )}
                 </i>
               </span>
-            </h2>
+                  </h2>*/}
             <Nav menu={menu} />
+            
           </div>
+
+
+          
 
 
 
