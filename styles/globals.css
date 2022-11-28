@@ -6613,7 +6613,7 @@ ul.colors li:nth-child(4) {
   .hr-lines:after {
     content: " ";
     height: 1px;
-    width: 65rem;
+    width: 62rem !important;
     background: #37455E;
     display: block;
     position: absolute;

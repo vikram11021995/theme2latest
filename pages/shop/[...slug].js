@@ -27,7 +27,7 @@ import formatMenuIntoSingleObject, {
 } from "../../lib/formatMenuIntoSingleObject";
 import fetchCategoryData from "../../lib/fetchCategoryData";
 import Container from "../../components/shared-components/Container";
-import CategoryHeader from "../../components/category/CategoryHeader";
+// import CategoryHeader from "../../components/category/CategoryHeader";
 import Facets from "../../components/Facets/Facets";
 import { i18n } from "../../next-i18next.config";
 
@@ -45,6 +45,7 @@ import Drawer from "../../components/elements/Drawer/Drawer";
 import { setHTMLElementFixedPosition } from "../../utils/functions";
 import fetchAllProductsOfTheCategory from "../../lib/fetchAllProductsOfTheCategory";
 import Search from "../../components/header/Search";
+import CategoryHeader from "../../components/category/CategoryHeader";
 
 const Wrapper = styled.div`
   .facetBreadcrumb {
@@ -643,8 +644,8 @@ const Category = ({
             )
               : null } */}
 
+{/* {isMobileState ? <CategoryHeader/>: null } */}
 
-              
             {/* <div style={{marginRight: "auto",
     marginLeft: "24%"}}>
               
