@@ -30,11 +30,14 @@ const Select = styled.select`
     display: flex;
     font-family: Source Sans Pro,sans-serif;
     font-size: 14px!important;
-    padding: 9% 3px!important;
+    // padding: 9% 3px!important;
+    padding: 5% 3px !important;
     text-transform: capitalize!important;
     // margin-left: 10px;
 
     width: 97%;
+    // width: 50% !important;
+    // margin-left: 3%;
 }
 
 .filterproductsortby{

@@ -192,7 +192,7 @@ const Wrapper = styled.div`
 }
 .sub-nav-menu-title-business h2 {
   align-items: flex-start;
-  background-color: #fff;
+  // background-color: #fff;
   color: #212B36;
   display: flex;
   font-size: 24px;
@@ -259,7 +259,7 @@ const Wrapper = styled.div`
 
     .catItems {
       display: grid;
-      grid-template-columns: repeat(4,1fr);
+      grid-template-columns: repeat(3,1fr);
       grid-gap: 30px;
       padding: 3px !important;
       // width: 65rem !important;
@@ -268,6 +268,23 @@ const Wrapper = styled.div`
   }
 
   @media only screen and (max-width: 430px){
+    .sorttopv{
+      padding: 3% 3px !important;
+    width: 97% !important;
+    width: 26% !important;
+    margin-left: 3% !important;
+    }
+    .storePagesContainer1{
+      background-color: #fff !important;
+      background: #fff !important;
+    }
+    .sub-nav-menu-title{
+      margin-top: 30px !important;
+      color: #fff !important;
+    }
+    .mobile-filter-button{
+      display: none !important;
+    }
     .catItems {
       display: grid;
       grid-template-columns: repeat(1,1fr) !important;
@@ -301,7 +318,7 @@ const Wrapper = styled.div`
 
    .catItems {
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(3,1fr);
     grid-gap: 30px;
     padding: 3px !important;
     // width: 65rem !important;
@@ -496,15 +513,17 @@ const Store = ({ storesState, URLCapitalize, storeTitle }) => {
 
         
 <Container className="storePagesContainer">
-        <>
+        <wrapper className="storePagesContainer1">
         <div className="storePages"> 
         <div className="sub-nav-menu-titleee sub-nav-menu-title-business"><h2 className="products-total-number"> {storeTitle} <span>(<ProductCount productCount={numberOfItems} />)</span></h2></div>
-        <div className="sortTop">
+        <div className="sortTop sortTopv">
+          <div>
         <SortBy productCount={numberOfItems} setSortBy={setSortBy} />
         </div>
+        <div></div>
         </div>
-        {console.log("storesStateddd", storesState
-        )}
+        </div>
+        
           {storesState && storesState.length > 0 ? (
             <div className="facets-and-category-items-wrapper flex-row block">
               <div className="facets-wrapper w-full">{renderFacets()}</div>
@@ -518,8 +537,6 @@ const Store = ({ storesState, URLCapitalize, storeTitle }) => {
                 </div>
 
                 <div className="flex flex-wrap w-full">
-                {console.log("queryv", query
-        )}
                   {query.map(q => (
                     <div
                       key={q.value}
@@ -586,7 +603,7 @@ const Store = ({ storesState, URLCapitalize, storeTitle }) => {
             </div>
           )}
          
-        </>
+        </wrapper>
         </Container>
       </Wrapper>
       </>
@@ -696,9 +713,9 @@ export async function getStaticProps({ params, locale }) {
   } */
 
   const urlToFetch = categoryUrl({
-    id: 558943,
+    id: 558985,
     //query: `&Sellers=${URLCapitalize}`
-    query: `&Sellers=Allen%20Solly`
+    query: `&Sellers=${URLCapitalize}`
   });
 
   console.log("urlToFetch", urlToFetch);

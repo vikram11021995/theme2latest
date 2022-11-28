@@ -89,8 +89,6 @@ const Product = ({
   console.log("productInitialData", productInitialData)
   console.log("supplierInfo", supplierInfo)
   console.log("priceInventory", priceInventory)
-  console.log("productDetailsData", productDetailsData)
-
 
 
   // console.log("storeProps", storeProps);
@@ -487,8 +485,8 @@ const Product = ({
         renderedBy="HomeBanner"
         firstSupplierVid={firstSupplierVid}
       />
-      {isMobileState ? <Search/>: null }
-      <div style={{marginTop: "55px"}}>
+      {/* <div style={{marginTop: "55px"}}> */}
+      <div>
         <Breadcrumbs breadcrumbs={product.breadcrumbs} />
       </div>
       <Container>
