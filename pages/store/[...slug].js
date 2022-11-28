@@ -515,7 +515,11 @@ const Store = ({ storesState, URLCapitalize, storeTitle }) => {
 <Container className="storePagesContainer">
         <wrapper className="storePagesContainer1">
         <div className="storePages"> 
-        <div className="sub-nav-menu-titleee sub-nav-menu-title-business"><h2 className="products-total-number"> {storeTitle} <span>(<ProductCount productCount={numberOfItems} />)</span></h2></div>
+        <div className="sub-nav-menu-titleee sub-nav-menu-title-business">
+          <h3 className="products-total-number"> {storeTitle} 
+            <span>(<ProductCount productCount={numberOfItems} />)</span>
+        </h3>
+        </div>
         <div className="sortTop sortTopv">
           <div>
         <SortBy productCount={numberOfItems} setSortBy={setSortBy} />
