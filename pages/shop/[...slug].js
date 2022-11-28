@@ -11,9 +11,9 @@ import ExternalContentFromCMS from "../../components/AC-ExternalContentFromCMS/E
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import {Fade, Slide} from "react-awesome-reveal";
 // import { htmlDecode } from "../../utils/htmlDecoder";
-import {htmlDecode} from "./../../utils/htmlDecoder";
+// import {htmlDecode} from "./../../utils/htmlDecoder";
 // import CategoryHeader from "../../components/category/CategoryHeader";
-
+import { htmlDecode } from "../../utils/htmlDecoder";
 
 import {
   fetchingCategoryRequest,
@@ -44,6 +44,7 @@ import { capitalize } from "../../utils/capitalize";
 import Drawer from "../../components/elements/Drawer/Drawer";
 import { setHTMLElementFixedPosition } from "../../utils/functions";
 import fetchAllProductsOfTheCategory from "../../lib/fetchAllProductsOfTheCategory";
+import Search from "../../components/header/Search";
 
 const Wrapper = styled.div`
   .facetBreadcrumb {
@@ -619,12 +620,31 @@ const Category = ({
           position="Bottom"
           renderedBy="HomeBanner"
         />
+        {isMobileState ? <Search/>: null }
         <Container>
+        
         <div className="facets-and-category-items-wrapper flex-row block">
           <div className="facets-wrapper w-full">{renderFacets()}</div>
           <div className="flex flex-col w-full">
             <div className="sortby-product-count-wrapper">
+            {/* {isMobileState ? 
+            (
+            <div style={{marginRight: "auto",
+    marginLeft: "24%"}}>
+              
+              <h2
+                style={{ backgroundColor: "transparent" }}
+                className="sub-nav-menu-title"
+                dangerouslySetInnerHTML={{
+                  __html: htmlDecode(data.description)
+                }}
+              ></h2>
+              </div>
+            )
+              : null } */}
 
+
+              
             {/* <div style={{marginRight: "auto",
     marginLeft: "24%"}}>
               
@@ -711,6 +731,7 @@ const Category = ({
 
           <div className="productsContainer">
             {isMobileState === false && (
+            
               <div className="filterProducts">
                 <Fade direction="left" delay={1e3} cascade damping={0.1} triggerOnce>
                 <Facets
@@ -722,6 +743,7 @@ const Category = ({
                 />
                 </Fade>
               </div>
+              
               
             )}
             <Fade direction="right" delay={1e3} cascade damping={0.1} triggerOnce>

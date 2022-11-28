@@ -54,6 +54,10 @@ import translate from "../../utils/Translate";
 import RelatedItems from "../../components/RelatedItems";
 import WishListBar from "../../components/product/WishListBar";
 
+import { Tabs, TabItem } from "../../components/uiElements/Tabs";
+import Search from "../../components/header/Search";
+
+
 // const {
 //   id,
 //   title,
@@ -481,6 +485,7 @@ const Product = ({
         renderedBy="HomeBanner"
         firstSupplierVid={firstSupplierVid}
       />
+      {isMobileState ? <Search/>: null }
       <div style={{marginTop: "55px"}}>
         <Breadcrumbs breadcrumbs={product.breadcrumbs} />
       </div>
@@ -547,7 +552,8 @@ const Product = ({
           //   </div>
           // </div>
 <>
-          <Breadcrumbs breadcrumbs={product.breadcrumbs} className="bredcrumb999"/>
+
+          {/* <Breadcrumbs breadcrumbs={product.breadcrumbs} className="bredcrumb999"/> */}
           <div className="flex flex-col md:flex-row distanccTopImage">
             {/* <Breadcrumbs breadcrumbs={product.breadcrumbs} /> */}
             <div className="flex-auto lg:w-80 md:w-80 sm:w-96">
@@ -560,7 +566,7 @@ const Product = ({
               />
             </div>
 
-            <div className="flex-auto lg:w-32 md:w-16">
+            <div className="flex-auto lg:w-32 md:w-16 descriptionLeft">
               <div>
                 <div>
                   <div className="Brand_nameWishlist">
@@ -629,7 +635,9 @@ const Product = ({
                 product={productDetailsData}
                 price={priceObj}
               /> */}
-              <div style={{ display: "flex" }}>
+              {/* <div style={{ display: "flex" }}> */}
+              <div className="addtocartitems">
+
                 <div>
                   <AddToCartBox
                     productUnavilable={productUnavailableState}
@@ -838,6 +846,22 @@ const Product = ({
         )}
 
         
+{/* <Tabs defaultIndex="1" onTabClick={console.log}>
+    <TabItem label="A" index="1">
+      
+    <OtherInfoTab
+              longDesc={productDetailsData.longdesc}
+            />
+    </TabItem>
+    <TabItem label="B" index="2">
+      
+    <OtherInfoTab
+              properties={productDetailsData.properties}
+              hiddenProps={productDetailsData.hiddenProperties}
+            />
+    </TabItem>
+  </Tabs> */}
+
 
         <div className="tabs">
           <input
@@ -1235,6 +1259,9 @@ const Wrapper = styled.main`
     padding-left: 4% !important;
 }
 
+@media screen and (max-width: 430px) {
+  margin-top: -2rem !important;
+}
 
 
 

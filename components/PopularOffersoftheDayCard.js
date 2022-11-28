@@ -369,7 +369,12 @@ const Wrapper = styled.div`
 
   .wishlist_iconss {
     margin-right: 11px !important;
-    width: 27% !important;
+    // width: 27% !important;
+    margin-top: 3%;
+  }
+
+  .addToCartProducts{
+    width: 60%
   }
 
   @media only screen and (min-width: 431px) and (max-width: 1400px) {
@@ -380,6 +385,15 @@ const Wrapper = styled.div`
     .shareicon-items {
       margin-top: 28% !important;
     }
+  }
+
+  .wishlist_iconss {
+    margin-right: 11px !important;
+    margin-top: 3%;
+  }
+  
+  .addToCartProducts{
+    width: 60%
   }
 `;
 

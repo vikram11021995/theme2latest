@@ -154,10 +154,10 @@ const Footer = () => {
                     </a>
                   </Link>
                 </div> */}
-                <p className="footer-right footer-rightDetail">
+                {/* <p className="footer-right footer-rightDetail">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna
-                </p>
+                </p> */}
 
 
 

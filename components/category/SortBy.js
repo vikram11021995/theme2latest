@@ -32,7 +32,9 @@ const Select = styled.select`
     font-size: 14px!important;
     padding: 9% 3px!important;
     text-transform: capitalize!important;
-    margin-left: 10px;
+    // margin-left: 10px;
+
+    width: 97%;
 }
 
 .filterproductsortby{

@@ -1,10 +1,16 @@
-import { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import Link from "next/link";
-import Search from "./Search";
-import Nav from "../Nav";
+import { shallowEqual, useSelector } from "react-redux";
+import { VID, LINK_DISTRIBUTION, PREVIEW } from "../../project-config.js";
 import { useRouter } from "next/router";
-
+import Link from "next/link";
+import { MdKeyboardArrowRight, MdKeyboardArrowDown } from "react-icons/md";
+import { IoChevronForwardOutline } from "react-icons/io5";
+// import LoginBar from "../LoginBar";
+import UnitSelector from "./UnitSelector";
+import Search from "./Search";
+import Modal from "../elements/Modal/Modal.jsx";
+import AuthLogOut from "../elements/Auth/AuthLogOut";
 
 const Wrapper = styled.div``;
 
@@ -21,8 +27,7 @@ const Ul = styled.ul`
 
   @media (max-width: 1023px) {
     flex-flow: column nowrap;
-    // background-color: #333;
-    background-color: #fff;
+    background-color: #333;
     width: 100%;
     padding-top: 1.5rem;
 
@@ -33,16 +38,35 @@ const Ul = styled.ul`
   }
 `;
 
-const MobileNavMenu = ({ open, toggle, close, menu, onClose }) => {
-  const router = useRouter();
+const MobileNavMenu = ({ open, toggle, close, menu: { childs } }) => {
+  const currentScreenWidthState = useSelector(
+    state => state.mainReducer.currentScreenWidth,
+    shallowEqual
+  );
 
-  const [showZoomModal, setShowZoomModal] = useState(false);
+  const [authModal, setAuthModal] = useState(false);
 
-  // const [close, setClose] = useState(false);
-  // const [open, setOpen] = useState(false);
+  const loginNameState = useSelector(
+    state => state.loginReducer.loginName,
+    shallowEqual
+  );
 
-  const onCloseBtn = (url) => {
-    router.push(url);
+  const loggedInState = useSelector(
+    state => state.loginReducer.firstName,
+    shallowEqual
+  );
+  const langState = useSelector(state => state.mainReducer.lang, shallowEqual);
+
+  const [isOpened, setIsOpened] = useState(false);
+
+  const [isOpened1, setIsOpened1] = useState(false);
+
+  function dropdownMobile() {
+    setIsOpened(wasOpened => !wasOpened);
+  }
+
+  function dropdownMobile1() {
+    setIsOpened1(wasOpened => !wasOpened);
   }
 
   useEffect(() => {
@@ -60,119 +84,84 @@ const MobileNavMenu = ({ open, toggle, close, menu, onClose }) => {
         id="nav-menu-drawer"
         className="nav-wrapper actual-nav scroll-bar-thin-style"
       >
-        <div className="nav-content-wrapper">
-          {/* <Search closeMobileNav={close} /> */}
-          <div className="navmenu-logo-wrapper">
-            <h2 className="storeslogo">STORE LOGO</h2>
-            <span
-              className="nav-close-btn"
-              // open={open}
-              // close={() => setOpen(false)}
-              // toggle={() => setOpen(!open)}
-              // menu={menu}
-
+        <div className="nav-content-wrapper1">
+          
+          <ul>
+          {childs.map(child => {
+                let url = child.URL.replace('shop/thai-legal-protection', '/').replace('shop/discount-marketplace', '/').replace('shop/campaigns', '/');
+                if (url.includes("stores")) {
+                  url = "stores";
+                }
+                return (
+                  <li
+                    key={child.cid}
+                  >
+                    <div className="navmenumain">
+                    <Link
+                      href={`/${url}`}
+                      onClick={() => handleCategoryChange()}
+                      locale={langState}
+                    >
+                      <a onClick={toggle}>
+                        {/* <img src={`https://ik.imagekit.io/ofb/TLP/${child.description.toLowerCase().replace(/\s+/g, '-')}.png`} /> */}
+                        {child.description.replace('Shop By', 'Shop').replace(/&amp;/g,"&")} 
+                      </a>
+                    </Link>
+                    {child.childs.length > 0 ? ( <div onClick={dropdownMobile}><IoChevronForwardOutline /></div> ) : null }
+                    </div>
+                    {isOpened ? (
+                      
+                      <div className="subcatdata">
+                      <ul>
+                        {child?.childs?.map(subcat => {
+                          return (
+                          <li className="hvr-col" key={subcat.cid} onClick={toggle}>
+                            <Link
+                              href={subcat.URL}
+                              onClick={() => handleCategoryChange()}
+                            >
+                              <a>{subcat.description.replaceAll('&amp;', '&')}</a>
+                            </Link>
+                            <ul className="megamenu-child">
+                              {subcat.childs.map((subsubcat, index) => (
+                                <li className="subchilds" key={index}>
+                                  <Link
+                                    href="/"
+                                    onClick={() => handleCategoryChange()}
+                                  >
+                                    <a>{subsubcat.description.replaceAll('&amp;', '&')}</a>
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </li>);
+                        })}
+                      </ul>
+                      </div>
+                    ) : null}                    
+                  </li>
+                );
+              })}
             
-
-              // onClick={onCloseBtn}
-            >
-              X
-            </span>
-          </div>
-          <div className="navmenu-profile-wrapper">
-            <p>Hi, Guest</p>
-            <button>Sign In</button>
-          </div>
-          <Ul open={open} style={{ overflowY: "auto" }} onClick={toggle}>
-            {/* {menu.childs.map(child => {
-              let url = child.URL;
-              if (url.includes("stores")) {
-                url = "stores";
-              }
-
-              return (
-                <li key={child.cid} className="navlink-">
-                  <Link href={`/${url}`}>
-                    <a className="menuCat">{child.name} </a>
-                  </Link>
-                </li>
-              );
-            })} */}
-
-            <li className="nav_submenu nav_submenuproduct">
-              <img
-                src="https://ik.imagekit.io/ofb/market/Layer_2_cR8qStpWvOP.svg"
-                alt="Icon"
-                className="home-iconz"
-              />
-              <span className="home-nav">
-                <a href="#home">Home</a>
-              </span>
-            </li>
-
-            <div className="allCateg">
-              <div className="all-cate">
-                <div
-                  className="all-products0"
-                  onMouseMove={() => {
-                    setShowZoomModal(!showZoomModal);
-                  }}
-                >
-                  <h2 className="all_itemprod1">
-                    <img
-                      src="https://ik.imagekit.io/ofb/market/category_2x_ZlfVlSWab.png"
-                      alt="Icon"
-                      style={{
-                        width: "6%",
-                        marginRight: "9px",
-                        marginLeft: "8%"
-                      }}
-                    />
-                    All Products
-                    <span className="rightDownexpandicon">
-                      <i
-                        className={showZoomModal ? "arrow down" : "arrow right"}
-                      >
-                        {showZoomModal ? (
-                          <img src="https://ik.imagekit.io/ofb/themes/down-arrow_EWBmEWAYW.png?ik-sdk-version=javascript-1.4.3&updatedAt=1667376253356" />
-                        ) : (
-                          <img src="https://ik.imagekit.io/ofb/themes/next_mNDdU4zh-.png?ik-sdk-version=javascript-1.4.3&updatedAt=1667376253375" />
-                        )}
-                      </i>
-                    </span>
-                  </h2>
-                  <Nav menu={menu} />
-                </div>
-              </div>
+            <li onClick={toggle}><div className="navmenumain"><Link href={`/contact-us`}><a>Contact Us </a></Link></div></li>
+            <li onClick={toggle}><div className="navmenumain"><Link href={`/contact-us`}><a>About Us </a></Link></div></li>
+            <li onClick={toggle}><div className="navmenumain"><Link href={`/contact-us`}><a>Terms Of Use</a></Link></div></li>
+            <li onClick={toggle}><div className="navmenumain"><Link href={`/contact-us`}><a>Shipping Information</a></Link></div></li>
+            
+            {/* {!loginNameState ? <li><div className="navmenumain"><a href={`${LINK_DISTRIBUTION}/signin.html?vid=20220426878&mt=1`}
+                    target="_blank" rel="noreferrer">Login <MdKeyboardArrowRight /></a></div></li> : <><li><div className="navmenumain"><a onClick={dropdownMobile1}> {loggedInState} <MdKeyboardArrowRight /></a></div></li>
+            {isOpened1 && (
+              <div className="MobileDropdown">
+              <ul onClick={toggle} className="mobileLogout">
+               <AuthLogOut setIsOpened={setIsOpened}  />              
+              </ul>
             </div>
-
-            <li className="nav_submenu"></li>
-            <li className="nav_submenu nav_submenuproduct">
-              {/* <img src="https://ik.imagekit.io/ofb/market/about_2x_BuXYbr_XL4M.png" alt="Icon" className="home-iconz"/> */}
-              <a href="#product">Product Theme</a>
-            </li>
-            <li className="nav_submenu"></li>
-            <li className="nav_submenu nav_submenuproduct">
-              <a href="#sale">Sale</a>
-            </li>
-            <li className="nav_submenu"></li>
-            <li className="nav_submenu nav_submenuproduct">
-              <a href="#brands">Brands</a>
-            </li>
-
-            <li className="nav_submenu"></li>
-            <li className="nav_submenu nav_submenuproduct">
-              <a href="#lorem">Lorem</a>
-            </li>
-            <li className="nav_submenu"></li>
-            <li className="nav_submenu nav_submenuproduct">
-              <a href="#ipsum">Ipsum</a>
-            </li>
-            <li className="nav_submenu"></li>
-            <li className="nav_submenu nav_submenuproduct">
-              <a href="#dolor">Dolor</a>
-            </li>
-          </Ul>
+            )}
+            </>
+            }  */}
+          </ul>
         </div>
+        
       </div>
     </Wrapper>
   );

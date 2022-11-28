@@ -9,6 +9,7 @@ import Grid from "./AC-UI-Elements/Grid/Grid";
 import styled from "styled-components";
 
 import { toggleWishListAction } from "../redux/actions/wishlistActions";
+import { Tabs, TabItem } from "./uiElements/Tabs";
 
 // import PropTypes from 'prop-types';
 // import { makeStyles } from '@material-ui/core/styles';
@@ -190,18 +191,196 @@ function PopularOffersoftheDay({ shopby }) {
         </div> */}
 
 
-        {/* <div className="topnav999">
-          <a className="active" href="#home">
-            New Arrivals
-          </a>
-          <a href="#best-earpods">Best Selling Earpods</a>
-          <a href="#smartwatch">Smart Watches</a>
-          <a href="#trending-wireless">Trending Wireless</a>
-          <a href="#headfones">Headphones</a>
-        </div> */}
+<Tabs defaultIndex="1" onTabClick={console.log}>
+    <TabItem label="New Arrivals" index="1">
+    <div>
+    {console.log("shopby", shopby)}
+        {shopby && shopby?.[1]?.items?.length > 0 ? (
+          <Carousel
+            swipeable={true}
+            draggable={true}
+            showDots={false}
+            responsive={responsive}
+            ssr={false} 
+            infinite={true}
+            autoPlay={false}
+            autoPlaySpeed={20000}
+            keyBoardControl={true}
+            transitionDuration={500}
+            containerClass="carousel-container"
+            dotListClass="custom-dot-list-style"
+            itemClass="carousel-item-padding-40-px"
+          >
+            {console.log("eee", shopby.items)}
+            {shopby &&
+              shopby?.[1]?.items?.map(item => (
+                <div key={item.id} className="owl-item popularProducts">
+                  <PopularOffersoftheDayCard key={item.id} itemCard={item} />
+                </div>
+              ))}
+          </Carousel>
+        ) : (
+          renderPlaceholderCards()
+        )}
+        </div>
+    </TabItem>
+    <TabItem label="Best Selling Earpods" index="2">
+    {console.log("shopby", shopby)}
+        {shopby && shopby?.[1]?.items?.length > 0 ? (
+          <Carousel
+            swipeable={true}
+            draggable={true}
+            showDots={false}
+            responsive={responsive}
+            ssr={false} 
+            infinite={true}
+            autoPlay={false}
+            autoPlaySpeed={20000}
+            keyBoardControl={true}
+            transitionDuration={500}
+            containerClass="carousel-container"
+            dotListClass="custom-dot-list-style"
+            itemClass="carousel-item-padding-40-px"
+          >
+            {console.log("eee", shopby.items)}
+            {shopby &&
+              shopby?.[1]?.items?.map(item => (
+                <div key={item.id} className="owl-item popularProducts">
+                  <PopularOffersoftheDayCard key={item.id} itemCard={item} />
+                </div>
+              ))}
+          </Carousel>
+        ) : (
+          renderPlaceholderCards()
+        )}
+    </TabItem>
+    <TabItem label="Smart Watches" index="3">
+      
+    {console.log("shopby", shopby)}
+        {shopby && shopby?.[1]?.items?.length > 0 ? (
+          <Carousel
+            swipeable={true}
+            draggable={true}
+            showDots={false}
+            responsive={responsive}
+            ssr={false} 
+            infinite={true}
+            autoPlay={false}
+            autoPlaySpeed={20000}
+            keyBoardControl={true}
+            transitionDuration={500}
+            containerClass="carousel-container"
+            dotListClass="custom-dot-list-style"
+            itemClass="carousel-item-padding-40-px"
+          >
+            {console.log("eee", shopby.items)}
+            {shopby &&
+              shopby?.[1]?.items?.map(item => (
+                <div key={item.id} className="owl-item popularProducts">
+                  <PopularOffersoftheDayCard key={item.id} itemCard={item} />
+                </div>
+              ))}
+          </Carousel>
+        ) : (
+          renderPlaceholderCards()
+        )}
+
+    </TabItem>
+    <TabItem label="Trending Wireless" index="4">
+      
+    {console.log("shopby", shopby)}
+        {shopby && shopby?.[1]?.items?.length > 0 ? (
+          <Carousel
+            swipeable={true}
+            draggable={true}
+            showDots={false}
+            responsive={responsive}
+            ssr={false} 
+            infinite={true}
+            autoPlay={false}
+            autoPlaySpeed={20000}
+            keyBoardControl={true}
+            transitionDuration={500}
+            containerClass="carousel-container"
+            dotListClass="custom-dot-list-style"
+            itemClass="carousel-item-padding-40-px"
+          >
+            {console.log("eee", shopby.items)}
+            {shopby &&
+              shopby?.[1]?.items?.map(item => (
+                <div key={item.id} className="owl-item popularProducts">
+                  <PopularOffersoftheDayCard key={item.id} itemCard={item} />
+                </div>
+              ))}
+          </Carousel>
+        ) : (
+          renderPlaceholderCards()
+        )}
+    </TabItem>
+    <TabItem label="Headphones" index="5">
+      
+    {console.log("shopby", shopby)}
+        {shopby && shopby?.[1]?.items?.length > 0 ? (
+          <Carousel
+            swipeable={true}
+            draggable={true}
+            showDots={false}
+            responsive={responsive}
+            ssr={false} 
+            infinite={true}
+            autoPlay={false}
+            autoPlaySpeed={20000}
+            keyBoardControl={true}
+            transitionDuration={500}
+            containerClass="carousel-container"
+            dotListClass="custom-dot-list-style"
+            itemClass="carousel-item-padding-40-px"
+          >
+            {console.log("eee", shopby.items)}
+            {shopby &&
+              shopby?.[1]?.items?.map(item => (
+                <div key={item.id} className="owl-item popularProducts">
+                  <PopularOffersoftheDayCard key={item.id} itemCard={item} />
+                </div>
+              ))}
+          </Carousel>
+        ) : (
+          renderPlaceholderCards()
+        )}
+    </TabItem>
+  </Tabs>
+
+  {/* {console.log("shopby", shopby)}
+        {shopby && shopby?.[1]?.items?.length > 0 ? (
+          <Carousel
+            swipeable={true}
+            draggable={true}
+            showDots={false}
+            responsive={responsive}
+            ssr={false} 
+            infinite={true}
+            autoPlay={false}
+            autoPlaySpeed={20000}
+            keyBoardControl={true}
+            transitionDuration={500}
+            containerClass="carousel-container"
+            dotListClass="custom-dot-list-style"
+            itemClass="carousel-item-padding-40-px"
+          >
+            {console.log("eee", shopby.items)}
+            {shopby &&
+              shopby?.[1]?.items?.map(item => (
+                <div key={item.id} className="owl-item popularProducts">
+                  <PopularOffersoftheDayCard key={item.id} itemCard={item} />
+                </div>
+              ))}
+          </Carousel>
+        ) : (
+          renderPlaceholderCards()
+        )} */}
 
 
-        <div className="tabs">
+        {/* <div className="tabs">
           <input
             type="radio"
             className="tabs__radio"
@@ -316,7 +495,12 @@ function PopularOffersoftheDay({ shopby }) {
           Headphones
           </label>
           <div className="tabs__content">Comments1</div>
-        </div>
+        </div> */}
+
+
+
+
+
         
 
         {/* <div class="tabsH effect-1">

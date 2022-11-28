@@ -24,7 +24,9 @@ export default function Facets({
           style={{ zIndex: "1", marginRight: "90px" }}
           className=" fixed top-0 left-0 mx-auto my-0 w-full p-5 flex items-center justify-between font-semibold text-xl bg-black text-white"
         >
-          <h2>Customer Login</h2>
+          {/* <h2>Customer Login</h2> */}
+          <h2>Filters</h2>
+
           <div className="text-white text-3xl cursor-pointer">
             <MdClose />
           </div>

@@ -253,6 +253,7 @@ const AddToCart = ({
 
   return (
     <Wrapper>
+      <div>
       <div className="flex flex-wrap mt-5">
         {/*{productUnavailable === false ? (*/}
 
@@ -377,6 +378,7 @@ const AddToCart = ({
         )}
       </div>
       {/* <ChatTheSeller storeSellerData={props.storeInfo.storeSellerData} /> */}
+      </div>
     </Wrapper>
   );
 };
