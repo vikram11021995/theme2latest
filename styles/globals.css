@@ -7380,3 +7380,7 @@ label.tab.tab-warning {
   display: contents !important;
   /* justify-content: space-between; */
 }
+
+.focusAble{
+  padding: 5% 5% !important;
+}
