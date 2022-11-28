@@ -503,7 +503,8 @@ const Store = ({ storesState, URLCapitalize, storeTitle }) => {
         <SortBy productCount={numberOfItems} setSortBy={setSortBy} />
         </div>
         </div>
-        
+        {console.log("storesStateddd", storesState
+        )}
           {storesState && storesState.length > 0 ? (
             <div className="facets-and-category-items-wrapper flex-row block">
               <div className="facets-wrapper w-full">{renderFacets()}</div>
@@ -517,6 +518,8 @@ const Store = ({ storesState, URLCapitalize, storeTitle }) => {
                 </div>
 
                 <div className="flex flex-wrap w-full">
+                {console.log("queryv", query
+        )}
                   {query.map(q => (
                     <div
                       key={q.value}

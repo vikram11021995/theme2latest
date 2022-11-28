@@ -89,6 +89,8 @@ const Product = ({
   console.log("productInitialData", productInitialData)
   console.log("supplierInfo", supplierInfo)
   console.log("priceInventory", priceInventory)
+  console.log("productDetailsData", productDetailsData)
+
 
 
   // console.log("storeProps", storeProps);

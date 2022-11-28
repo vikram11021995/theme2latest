@@ -14,7 +14,8 @@ import translate from "../../utils/Translate";
 import { toggleCompareAction, deleteComparedItemsDetails,
   deleteCompareItem,
   fetchComparedItemDetails, } from "../../redux/actions/compareActions";
-import {toggleCompare} from "../Compare"
+import {toggleCompare} from "../Compare";
+// import WishListBar from "../product/WishListBar";
 
 
 
@@ -24,6 +25,7 @@ const ItemCard = ({
   relatedItem = false,
   relatedItemProp,
   menu
+  // productDetailsData
   // ...props
   // priceInventory
 
@@ -75,6 +77,11 @@ console.log("cvvvvv", productPrice);
 
   const currencyState = useSelector(
     state => state.mainReducer.currency,
+    shallowEqual
+  );
+
+  const itemDetailIdState = useSelector(
+    state => state.productReducer.itemDetail.itemid,
     shallowEqual
   );
 
@@ -490,9 +497,11 @@ console.log("cvvvvv", productPrice);
                 <div className="wishlist_iconss">
                   <img
                     src={`https://ik.imagekit.io/ofb/themes/Group_79_AxJIStywbY.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1665052318950`}
-                    // alt={desc}
                     className="wishlistIicons"
                   />
+                  {/* <WishListBar
+        product={productDetailsData}
+        /> */}
                 </div>
                 <div className="">
                   <button className="button-add1">Add to Cart</button>
