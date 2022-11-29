@@ -652,7 +652,7 @@ const Wrapper = styled.section`
 }
 
 .wishlist_iconss:hover{
-  background-color: #FDDA06 !important;
+  // background-color: #FDDA06 !important;
   padding: 1px 0 1px 3%;
   height: 36px;
   margin-right: 11px;

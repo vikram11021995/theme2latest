@@ -188,7 +188,9 @@ const Wrapper = styled.div`
     display: flex;
     // margin: 0 auto 15px;
     position: relative;
-    width: 100%;
+    
+    width: 85%;
+    padding: 0 4%;
 }
 .sub-nav-menu-title-business h2 {
   align-items: flex-start;
@@ -216,12 +218,12 @@ const Wrapper = styled.div`
 }
 .sub-nav-menu-title-business:after {
   background-color: #cdcdcd;
-  content: "";
-  height: 1px;
-  left: 0;
-  position: absolute;
-  top: 17px;
-  width: 99%;
+    content: "";
+    height: 1px;
+    left: 53%;
+    position: absolute;
+    top: 13px;
+    width: 64%;
 }
   @media only screen and (max-width: 900px) {
     .mobileSearch {
@@ -308,7 +310,7 @@ const Wrapper = styled.div`
   .sub-nav-menu-title{
     justify-content: center;
     font-size: 20px !important;
-    margin-top: 14px !important;
+    // margin-top: 14px !important;
   }
 
   .sub-nav-menu-title-p{

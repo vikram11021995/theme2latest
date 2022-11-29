@@ -199,7 +199,7 @@ const Stores = ({ storesProps, storesState }) => {
         renderedBy="HomeBanner"
       />
 
-      <div style={{ marginTop: "55px" }}>
+      <div>
         {/* <img
                     src={`https://ik.imagekit.io/ofb/themes/Group_207_bVZ9dOp3h.png?ik-sdk-version=javascript-1.4.3&updatedAt=1667455960983`}
                   /> */}

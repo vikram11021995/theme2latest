@@ -108,7 +108,7 @@ function RelatedItems({ items, properties, relatedItem = false }) {
 
   return (
     <div className={classes.container}>
-      <Wrapper>
+      <Wrapper className="likelytobeitems-wrapper">
         <h1 className="likelytobeitems">You Might also Like</h1>
         <DynamicCarousel
           autoPlaySpeed={3000}
